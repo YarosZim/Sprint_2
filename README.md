@@ -1,1 +1,15 @@
-# Sprint_2
+﻿# Sprint_2
+
+Java OOP project with a shopping cart implementation.
+
+## Project structure
+
+- model — product classes
+- service — shopping cart logic
+- constants — project constants
+
+## Technologies
+
+- Java
+- Maven
+- IntelliJ IDEA
