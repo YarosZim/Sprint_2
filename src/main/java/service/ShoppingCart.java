@@ -1,49 +1,58 @@
 package service;
+
 import model.Food;
 
 public class ShoppingCart {
     private Food[] products;
 
-    public ShoppingCart (Food[] products) {
+    public ShoppingCart(Food[] products) {
         this.products = products;
     }
-     public float getTotalPrice (){
+
+    public float getTotalPrice() {
         float total = 0;
-        for (int i = 0; i < products.length; i++){
-            float amount = products[i].getAmount();
-            float price = products[i].getPrice();
+
+        for (Food product : products) {
+            float amount = product.getAmount();
+            float price = product.getPrice();
 
             total += amount * price;
         }
-            return total;
-         }
-         public  float getTotalPriceWithDiscount(){
+
+        return total;
+    }
+
+    public float getTotalPriceWithDiscount() {
         float total = 0;
-        for (int i = 0; i < products.length; i++) {
-            float amount = products[i].getAmount();
-            float price = products[i].getPrice();
+
+        for (Food product : products) {
+            float amount = product.getAmount();
+            float price = product.getPrice();
             float productPrice = amount * price;
-            float discount = products[i].getDiscount();
-            float discountAmount  = (productPrice * discount) / 100;
+            float discount = product.getDiscount();
+
+            float discountAmount = (productPrice * discount) / 100;
             float discountPrice = productPrice - discountAmount;
+
             total += discountPrice;
         }
-            return total;
 
-         }
-         public float getTotalVegetarianPrice(){
-             float total = 0;
-            for (int i = 0; i < products.length; i++){
-                float amount = products[i].getAmount();
-                float price = products[i].getPrice();
-                float productPrice = amount * price;
+        return total;
+    }
 
-                if (products[i].getIsVegetarian()){
-                    total += productPrice;
-                }
-                }
-                    return total;
+    public float getTotalVegetarianPrice() {
+        float total = 0;
+
+        for (Food product : products) {
+            float amount = product.getAmount();
+            float price = product.getPrice();
+            float productPrice = amount * price;
+
+            if (product.isVegetarian()) {
+                total += productPrice;
             }
+        }
 
-         }
-
+        return total;
+    }
+}

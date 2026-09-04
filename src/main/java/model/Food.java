@@ -5,22 +5,24 @@ public abstract class Food implements Discountable {
     protected float price;
     protected boolean isVegetarian;
 
-
     protected Food(int amount, float price, boolean isVegetarian) {
         this.amount = amount;
         this.price = price;
         this.isVegetarian = isVegetarian;
     }
 
-    public int getAmount(){
+    public int getAmount() {
         return amount;
     }
-    public float getPrice(){
+
+    public float getPrice() {
         return price;
     }
-    public boolean getIsVegetarian(){
+
+    public boolean isVegetarian() {
         return isVegetarian;
     }
+
     @Override
     public float getDiscount() {
         return 0;
